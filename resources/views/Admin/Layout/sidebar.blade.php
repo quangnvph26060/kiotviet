@@ -36,12 +36,12 @@
                 </li> --}}
 
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#sidebarsanpham">
-                        <i class="fas fa-boxes"></i>
+                    <a data-bs-toggle="collapse" href="#product">
+                        <i class="fas fa-box"></i>
                         <p>Sản phẩm</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="sidebarsanpham">
+                    <div class="collapse" id="product">
                         <ul class="nav nav-collapse">
                             <li>
                                 <a href="{{ route('admin.product.store') }}">
@@ -58,11 +58,18 @@
                                     <span class="sub-item">Thương hiệu</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ route('admin.check.index') }}">
-                                    <span class="sub-item">Phiếu kiểm kho</span>
-                                </a>
-                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#warehouse">
+                        <i class="fas fa-boxes"></i>
+                        <p>Kho hàng</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="warehouse">
+                        <ul class="nav nav-collapse">
                             <li>
                                 <a href="{{ route('admin.storage.index') }}">
                                     <span class="sub-item">Kho hàng</span>
@@ -73,9 +80,30 @@
                                     <span class="sub-item">Nhập hàng</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="#">
+                                    <span class="sub-item">Xuất kho</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="sub-item">Chuyển kho</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.check.index') }}">
+                                    <span class="sub-item">Phiếu kiểm kho</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.inventory.index') }}">
+                                    <span class="sub-item">Tồn kho</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
+
                 <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarnhacungcap">
                         <i class="fas fa-building"></i>
@@ -97,27 +125,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#sidebarnhanvien">
-                        <i class="fas fa-user-tie"></i>
-                        <p>Nhân viên</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="sidebarnhanvien">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="{{ route('admin.staff.store') }}">
-                                    <span class="sub-item">Danh sách</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.staff.addForm') }}">
-                                    <span class="sub-item">Thêm nhân viên</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+
 
                 <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarthuchi">
@@ -166,14 +174,21 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="#">
+                                    <span class="sub-item">Báo giá</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="sub-item">Hợp đồng</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ route('admin.profit.index') }}">
                                     <span class="sub-item">Lợi nhuận</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.inventory.index') }}">
-                                    <span class="sub-item">Tồn kho</span>
-                                </a>
                                 <a data-bs-toggle="collapse" href="#sidebarthongke">
                                     <span class="sub-item">Thống kê ngày</span>
                                     <span class="caret"></span>
@@ -218,11 +233,52 @@
                 </li>
 
                 <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#config">
+                        <i class="fas fa-cogs"></i>
+                        <p>Cấu hình</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="config">
+                        <ul class="nav nav-collapse">
+                            <li class="nav-item ms-3">
+                                <a data-bs-toggle="collapse" href="#sidebarnhanvien">
+                                    <i class="fas fa-user-tie"></i>
+                                    <p>Nhân viên</p>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse" id="sidebarnhanvien">
+                                    <ul class="nav nav-collapse ms-3">
+                                        <li>
+                                            <a href="{{ route('admin.staff.store') }}">
+                                                <span class="sub-item">Danh sách</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('admin.staff.addForm') }}">
+                                                <span class="sub-item">Thêm nhân viên</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            {{-- <li class="nav-item ms-3">
+                                <a  href="">
+                                    <i class="fas fa-user-shield"></i>
+                                    <p>Phần quyền</p>
+                                </a>
+
+                            </li> --}}
+                        </ul>
+                    </div>
+                </li>
+
+                {{-- <li class="nav-item">
                     <a href="{{ route('admin.config.detail', ['id' => session('authUser')->id]) }}">
                         <i class="fas fa-cogs"></i>
                         <p>Cấu hình</p>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

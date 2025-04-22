@@ -121,12 +121,12 @@
                     <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#"
                         aria-expanded="false">
                         <div class="avatar-sm">
-                            <img src="{{ isset(session('authUser')->user_info->img_url) && !empty(session('authUser')->user_info->img_url) ? asset(session('authUser')->user_info->img_url) : asset('images/avatar2.jpg') }}"
-                                alt="image profile" class="avatar-img rounded-circle">
+                            <img src="{{ showImage(auth()->user()->img_url)}}"
+                                alt="{{ auth()->user()->name}}" class="avatar-img rounded-circle">
                         </div>
                         <span class="profile-username">
                             <span class="op-7">Hi,</span>
-                            <span class="fw-bold">{{ session('authUser')->name }}</span>
+                            <span class="fw-bold">{{ auth()->user()->name }}</span>
                         </span>
                     </a>
                     <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -136,14 +136,14 @@
                                 <li>
                                     <div class="user-box">
                                         <div class="avatar-lg">
-                                            <img src="{{ isset(session('authUser')->user_info->img_url) && !empty(session('authUser')->user_info->img_url) ? asset(session('authUser')->user_info->img_url) : asset('images/avatar2.jpg') }}"
+                                            <img src="{{ showImage(auth()->user()->img_url) }}"
                                                 alt="image profile" class="avatar-img rounded-circle">
                                         </div>
                                         <div class="u-text">
-                                            <h4>{{ session('authUser')->name }}</h4>
-                                            <p class="text-muted">{{ session('authUser')->email }}</p>
+                                            <h4>{{ auth()->user()->name }}</h4>
+                                            <p class="text-muted">{{ auth()->user()->email }}</p>
                                             <div style="display: flex">
-                                                <a href="{{ route('admin.detail', ['id' => session('authUser')->id]) }}"
+                                                <a href="{{ route('admin.detail', ['id' => auth()->id()]) }}"
                                                     class="btn btn-xs btn-secondary btn-sm p-1">Trang cá nhân</a>
                                                 <a href="#" class="btn btn-xs btn-sm p-1"
                                                     style="background: red; color: #ffff; margin-left: 10px"

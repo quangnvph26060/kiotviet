@@ -246,7 +246,7 @@
                                     </div>
                                     <div class="form-group">
                                         <img id="profileImage"
-                                            src="{{ isset(session('authUser')->user_info->img_url) && !empty(session('authUser')->user_info->img_url) ? asset(session('authUser')->user_info->img_url) : asset('images/avatar2.jpg') }}"
+                                            src="{{showImage(auth()->user()->img_url) }}"
                                             alt="image profile" class="avatar">
                                     </div>
                                 </div>

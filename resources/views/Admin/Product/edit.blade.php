@@ -211,7 +211,7 @@
                                                                 style="right: 15px">X</button>
                                                             <img class="img-fluid w-100 rounded"
                                                                 src="{{ showImage($item->image_path) }}"
-                                                                alt="{{ $item }}">
+                                                                alt="{{ $item->image_path }}">
                                                         </div>
                                                     @endforeach
                                                     <input type="hidden" name="delete_images[]" id="delete_images">

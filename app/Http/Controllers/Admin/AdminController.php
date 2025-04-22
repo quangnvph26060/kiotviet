@@ -34,14 +34,13 @@ class AdminController extends Controller
     {
         try {
             Log::info("Received request to update admin with ID: $id", $request->all());
-            $admin = $this->adminService->updateUser($id, $request->all());
-            $authUser = session('authUser');
-            $authUser->name = $admin->name;
-            $authUser->email = $admin->email;
-            $authUser->user_info->img_url = $admin->user_info->img_url;
-            session(['authUser' => $authUser]);
+
+            $this->adminService->updateUser($id, $request);
+
             Log::info("Successfully updated admin with ID: $id");
+
             session()->flash('success', 'Thay đổi thông tin thành công');
+
             return redirect()->back();
         } catch (Exception $e) {
             Log::error('Failed to update admin info: ' . $e->getMessage());

@@ -34,6 +34,7 @@ class User extends Authenticatable
         'address',
         'storage_id',
         'wallet',
+        'img_url'
     ];
 
     protected $hidden = [
